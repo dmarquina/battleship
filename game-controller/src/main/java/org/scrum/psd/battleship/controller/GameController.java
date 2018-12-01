@@ -50,5 +50,6 @@ public class GameController {
         int number = random.nextInt(size);
         Position position = new Position(letter, number);
         return position;
+        
     }
 }
