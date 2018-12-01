@@ -124,19 +124,23 @@ public class Main {
     }
 
     private static void InitializeMyFleet() {
+        String ANSI_BLUE = "\u001B[34m";
+        String ANSI_YELLOW = "\033[0;33m";
+        String ANSI_YELLOW_BOLD = "\033[1;33m";
+        String ANSI_BLUE_BOLD = "\033[1;33m";
         Scanner scanner = new Scanner(System.in);
         myFleet = GameController.initializeShips();
 
 
-        System.err.println("Please position your fleet (Game board has size from A to H and 1 to 8) :");
+        System.out.println(ANSI_YELLOW_BOLD + "Please position your fleet (Game board has size from A to H and 1 to 8) :");
         for (Ship ship : myFleet) {
-            console.println("");
-            console.println(String.format("Please enter the positions for the %s (size: %s)", ship.getName(), ship.getSize()));
+            System.out.println("");
+            System.out.println(ANSI_YELLOW + "Please enter the positions for the "+ship.getName() + "ship: "+ship.getSize());
             for (int i = 1; i <= ship.getSize(); i++) {
                 boolean validInput = false;
                 String positionInput = "";
                 while (!validInput) {
-                    console.println(String.format("Enter position of your %s° ship (i.e A3):", i, ship.getSize()));
+                    System.out.println(ANSI_BLUE + "Enter position of your "+i+"° ship (i.e A3):");
                     positionInput = scanner.next();
                     validInput = isValidInput(positionInput);
                 }
